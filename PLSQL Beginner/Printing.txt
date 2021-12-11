@@ -1,0 +1,16 @@
+
+Declare 
+
+Name Varchar2(30) := 'xyz';
+Amount Number(10,3) := 5000;
+Portion Number(10,3) := Amount/3;
+
+Begin 
+DBMS_OUTPUT.PUT_LINE('Welcome to the Thunderdome, ' || Name);
+DBMS_OUTPUT.PUT_LINE('Your Portion of the salary is, ' || Portion);
+
+    Exception 
+        When Zero_Divide then
+            DBMS_OUTPUT.PUT_LINE(SQLERRM);
+END;
+/

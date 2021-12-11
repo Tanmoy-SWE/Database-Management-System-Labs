@@ -1,0 +1,32 @@
+Create Table Boys(
+    id INT,
+    Name Varchar2(100),
+    semester Varchar2(10)
+    );
+
+Insert Into Boys Values (1, 'Moshiur', 2);
+Insert Into Boys Values (2, 'Esrat', 4);
+Insert Into Boys Values (3, 'Anika', 3);
+Declare 
+
+--Variable_name table_name.column_name%Type
+
+Var_Name Boys.Name%Type;
+Var_Semester Boys.Semester%Type;
+
+Begin 
+
+    Select 
+        name, semester
+    INTO 
+        Var_Name, Var_Semester
+    From 
+        Boys
+    Where 
+        Boys.id = 2;
+
+DBMS_OUTPUT.PUT_LINE('Name of the student : ' || Var_Name);
+DBMS_OUTPUT.PUT_LINE('Semester of the student : ' || Var_Semester);
+
+END;
+/

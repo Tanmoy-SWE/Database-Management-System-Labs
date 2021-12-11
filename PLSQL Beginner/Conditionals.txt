@@ -1,0 +1,40 @@
+Create Table SWE(
+    id INT,
+    Name Varchar2(100),
+    Marks INT
+    );
+
+
+
+Insert Into SWE Values (1, 'Moshiur', 65);
+Insert Into SWE Values (2, 'Esrat', 81);
+Insert Into SWE Values (3, 'Akib', 78);
+
+Declare
+Var_Name SWE.Name%Type;
+Var_Marks SWE.Marks%Type;
+Grade varchar2(5);
+
+Begin 
+    Select 
+        name, marks
+    INTO 
+        Var_Name, Var_Marks
+    From 
+        SWE
+    Where 
+        SWE.id = 2;
+    
+If Var_Marks > 79 Then
+        Grade := 'A+';
+     Elsif Var_Marks > 69 and Var_Marks < 80 Then 
+        Grade := 'B';
+     Else
+        Grade := 'F';
+END IF;
+
+DBMS_OUTPUT.PUT_LINE('Name of the student : ' || Var_Name);
+DBMS_OUTPUT.PUT_LINE('Marks of the student : ' || Var_Marks);
+
+END;
+/
